@@ -205,4 +205,25 @@ function onSessionEnded(sessionEndedRequest, session) {
 
   
 }
+
+function onLaunch(launchRequest, session, response) {
+  logger.debug('onLaunch requestId=' + launchRequest.requestId + ', sessionId=' + session.sessionId);
+
+  response.speechText = 'Hi, I am calorie and fat lookup skill. You can ask me amount of calories of different food items. Which food would you like to check?';
+  response.repromptText = 'For example, you can say how many calories are in vanilla yogurt.';
+  response.shouldEndSession = false;
+  response.done();
 }
+
+
+
+var MAX_RESPONSES = 3;
+var MAX_FOOD_ITEMS = 10;
+
+intentHandlers['GetCalorieInfo'] = function(request,session,response,slots) {
+  //Intent logic
+  //slots.FoodItem
+
+}
+
+
